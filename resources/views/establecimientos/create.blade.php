@@ -8,6 +8,11 @@
       rel="stylesheet"
       href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
     />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" />
+
+
 @endsection
 
 
@@ -197,6 +202,18 @@
                     </div>
             </fieldset>
 
+
+            <fieldset class="border p-4 mt-5">
+                <legend class="text-primary">Imagenes del Establecimiento:</legend>
+                <div class="form-group">
+                    <label for="imagenes">Imagenes</label>
+                    <div id="dropzone" class="dropzone form-control">
+
+                    </div>
+                </div>
+            </fieldset>
+
+
             <input type="hidden" id="uuid" name="uuid" value="{{ Str::uuid()->toString()}}">
             <input type="submit" class="btn btn-primary mt-3 d-block" value="Registrar Establecimiento">
 
@@ -220,5 +237,8 @@
 
   <script src="https://unpkg.com/esri-leaflet" defer></script>
   <script src="https://unpkg.com/esri-leaflet-geocoder" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js" integrity="sha512-9WciDs0XP20sojTJ9E7mChDXy6pcO0qHpwbEJID1YVavz2H6QBz5eLoDD8lseZOb2yGT8xDNIV7HIe1ZbuiDWg==" crossorigin="anonymous" defer></script>
+
 @endsection
 

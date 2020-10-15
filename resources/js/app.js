@@ -34,3 +34,4 @@ const app = new Vue({
 
 import * as Vue2Leaflet from 'vue2-leaflet';
 require('./mapa');
+require('./dropzone');
