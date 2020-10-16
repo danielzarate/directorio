@@ -23,7 +23,8 @@
         <h1 class="text-cetner mt-4">Registrar Establecimiento</h1>
         
         <div class="mt-5 row justify-content-center">
-            <form action="" class="col-md-9 col-xs-12 card card-body" >
+            <form method="POST" action="{{route('establecimiento.store')}}" class="col-md-9 col-xs-12 card card-body" enctype="multipart/form-data">
+            @csrf
 
             <fieldset class="border p-4">
                 <legend class="text-primary">Nombre Categoria e Imagen Principal</legend>
@@ -50,11 +51,15 @@
                     <select class="form-control @error('categoria_id') is-invalid @enderror" name="categoria_id" id="categoria_id">
                         <option value="" selected disabled>-- Seleccione --</option>
                         @foreach ($categorias as $categoria)
-                            <option value="{{$categoria->id}}
-                            {{old('categoria_id')==$categoria->id ? 'selected' : ''}}                                
-                            ">{{$categoria->nombre}}</option>
+                            <option value="{{$categoria->id}}{{old('categoria_id')==$categoria->id ? 'selected' : ''}}">{{$categoria->nombre}}</option>
                         @endforeach
                     </select>
+                    @error('categoria_id')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                    @enderror
+
                 </div>
 
                 <div class="form-group">
@@ -95,6 +100,7 @@
                     <label for="direccion">Dirección</label>
                     <input type="text"
                             id="direccion"
+                            name="direccion"
                             class="form-control @error('direccion') is-invalid @enderror"
                             placeholder="Direccion"
                             value="{{ old('direccion') }}"
