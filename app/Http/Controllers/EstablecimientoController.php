@@ -34,7 +34,6 @@ class EstablecimientoController extends Controller
             'descripcion'=>'required|min:50',
             'apertura'=>'date_format:H:i',
             'cierre'=>'date_format:H:i|after:apertura',
-            'uuid'=>'required|uuid'
 
         ]);
         $ruta_imagen=$request['imagen_principal']->store('principales','public');

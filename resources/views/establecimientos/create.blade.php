@@ -22,6 +22,18 @@
     <div class="container">
         <h1 class="text-cetner mt-4">Registrar Establecimiento</h1>
         
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <strong>Error!</strong> Hay uno o varios errores en el formulario.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="mt-5 row justify-content-center">
             <form method="POST" action="{{route('establecimiento.store')}}" class="col-md-9 col-xs-12 card card-body" enctype="multipart/form-data">
             @csrf
